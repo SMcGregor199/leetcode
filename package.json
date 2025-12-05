@@ -1,0 +1,21 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "<!---LeetCode Topics Start--> # LeetCode Topics ## Array |  | | ------- | | [2788-split-strings-by-separator](https://github.com/SMcGregor199/leetcode/tree/master/2788-split-strings-by-separator) | ## String |  | | ------- | | [2788-split-strings-by-separator](https://github.com/SMcGregor199/leetcode/tree/master/2788-split-strings-by-separator) | <!---LeetCode Topics End-->",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SMcGregor199/leetcode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/SMcGregor199/leetcode/issues"
+  },
+  "homepage": "https://github.com/SMcGregor199/leetcode#readme"
+}
