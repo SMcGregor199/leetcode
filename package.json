@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/SMcGregor199/leetcode/issues"
   },
-  "homepage": "https://github.com/SMcGregor199/leetcode#readme"
+  "homepage": "https://github.com/SMcGregor199/leetcode#readme",
+  "devDependencies": {
+    "supertest": "^7.1.4"
+  }
 }
