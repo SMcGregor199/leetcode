@@ -1,0 +1,25 @@
+{
+    "concepts": [
+        {
+            "name": "Counting Sort",
+            "category": "Pattern-Level Summary",
+            "whatItIs": "A non-comparison sorting algorithm that counts how many times each value appears and then reconstructs the sorted array using those counts.",
+            "whenToUse": [
+                "When values fall within a small, known range (e.g., only 0 and 1, or values up to a few hundred).",
+                "When sorting binary arrays by counting zeros and then filling the array with zeros followed by ones."
+            ],
+            "bigIdea": "Instead of comparing values, you sort by frequency."
+        },
+        {
+            "name": "Set Membership Loop Pattern",
+            "category": "LeetCode 2154 and many others",
+            "whatItIs": "A pattern where you place all input values in a Set for O(1) membership checks, then repeatedly apply a transformation to a value as long as it exists in the set.",
+            "whenToUse": [
+                "When problems say things like: 'While x exists in the list...', 'Keep doubling/halving/transforming x...', or 'Repeat until the value disappears...'.",
+                "When repeated membership checking would otherwise require nums.includes(x) (O(n)), nested loops, or manual scans."
+            ],
+            "corePattern": "const seen = new Set(nums);\n\nwhile (seen.has(value)) {\n    value = transform(value);\n}",
+            "bigIdea": "Use a Set to reduce repeated membership checks from O(n) to O(1) and pair it with a while loop to handle repeated transformations."
+        }
+    ]
+}
