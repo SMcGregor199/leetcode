@@ -13,6 +13,28 @@ A non-comparison sorting algorithm that counts how many times each value appears
   1. Count zeros  
   2. Fill the array with zeros, then ones
 
+### **Core Loop**
+
+```js
+    let zeroCount = 0;
+
+    for(let n of nums){
+        if(n===0){
+            zeroCount++;
+        }
+    }
+
+    for(let i = 0; i< nums.length; i++){
+        if(i < zeroCount){
+            nums[i] = 0;
+        } else {
+            nums[i] = 1;
+        }
+    }
+
+    return nums;
+}
+```
 ### **Big Idea**
 Instead of comparing values (like in quicksort or mergesort), you sort by **frequency**.
 
@@ -45,3 +67,7 @@ const seen = new Set(nums);
 while (seen.has(value)) {
     value = transform(value);
 }
+```
+
+### **Big Idea**
+Use a Set to reduce repeated membership checks from O(n) to O(1) and pair it with a while loop to handle repeated transformations.
