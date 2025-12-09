@@ -18,3 +18,4 @@ Explain it like you’re teaching your future self.}
 ```js
 // {Short label: e.g., "Core loop", "Typical usage", etc.}
 {Example code snippet}
+
