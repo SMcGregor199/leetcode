@@ -10,6 +10,7 @@
 |  |
 | ------- |
 | [2788-split-strings-by-separator](https://github.com/SMcGregor199/leetcode/tree/master/2788-split-strings-by-separator) |
+| [3258-count-substrings-that-satisfy-k-constraint-i](https://github.com/SMcGregor199/leetcode/tree/master/3258-count-substrings-that-satisfy-k-constraint-i) |
 ## Sorting
 |  |
 | ------- |
@@ -31,4 +32,8 @@
 |  |
 | ------- |
 | [2520-count-the-digits-that-divide-a-number](https://github.com/SMcGregor199/leetcode/tree/master/2520-count-the-digits-that-divide-a-number) |
+## Sliding Window
+|  |
+| ------- |
+| [3258-count-substrings-that-satisfy-k-constraint-i](https://github.com/SMcGregor199/leetcode/tree/master/3258-count-substrings-that-satisfy-k-constraint-i) |
 <!---LeetCode Topics End-->
