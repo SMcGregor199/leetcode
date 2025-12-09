@@ -27,4 +27,8 @@
 |  |
 | ------- |
 | [2154-keep-multiplying-found-values-by-two](https://github.com/SMcGregor199/leetcode/tree/master/2154-keep-multiplying-found-values-by-two) |
+## Math
+|  |
+| ------- |
+| [2520-count-the-digits-that-divide-a-number](https://github.com/SMcGregor199/leetcode/tree/master/2520-count-the-digits-that-divide-a-number) |
 <!---LeetCode Topics End-->
