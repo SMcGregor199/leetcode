@@ -4,7 +4,8 @@
   "description": "<!---LeetCode Topics Start--> # LeetCode Topics ## Array |  | | ------- | | [2788-split-strings-by-separator](https://github.com/SMcGregor199/leetcode/tree/master/2788-split-strings-by-separator) | ## String |  | | ------- | | [2788-split-strings-by-separator](https://github.com/SMcGregor199/leetcode/tree/master/2788-split-strings-by-separator) | <!---LeetCode Topics End-->",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/SMcGregor199/leetcode#readme",
   "devDependencies": {
+    "nodemon": "^3.1.11",
     "supertest": "^7.1.4"
   }
 }

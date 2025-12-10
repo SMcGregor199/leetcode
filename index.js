@@ -13,31 +13,57 @@ const PORT = 8080;
 //In Node, it's best practice to do everything explicitly (i.e set headers, status codes, etc.). We're essentially doing this imperatively
 //where as express handles much of the headers and status codes for us.
 const server = http.createServer((req,res)=>{
-    if(req.url === "/leetcode" && req.method === "GET"){
-        //therefore I need to use JSON.stringify here even though it looks like I'm importing json up top.
-        res.setHeader("Content-Type","application/json");
-        res.statusCode = 200;
-        res.end(JSON.stringify(concepts));
+    const url = new URL(req.url,`https://${req.headers.host}`); 
+    const queryParams = Object.fromEntries(url.searchParams);
+    
+    if(url.pathname === "/leetcode" && req.method === "GET"){
+        if(Object.keys(queryParams).length !==0){
+            if(queryParams.category){
+               const filteredConcepts = concepts.filter((concept)=> concept.category===queryParams.category);
+                res.setHeader("Content-Type","application/json");
+                res.statusCode = 200;
+                res.end(JSON.stringify(filteredConcepts));
+            } else if(queryParams.name){
+                const filteredConcepts = concepts.filter((concept)=> concept.name===queryParams.name);
+                res.setHeader("Content-Type","application/json");
+                res.statusCode = 200;
+                res.end(JSON.stringify(filteredConcepts));
+            } 
+            else {
+                res.setHeader("Content-Type","application/json");
+                res.statusCode = 400;
+                res.end(JSON.stringify({error: "bad request", message: "Invalid query parameters"}));
+            }
+        } else {
+            res.setHeader("Content-Type","application/json");
+            res.statusCode = 200;
+            res.end(JSON.stringify(concepts));
+        }
+
     }
-    if(req.url==="/leetcode/completed" && req.method === "GET"){
+    else if(req.url.startsWith("/leetcode/completed") && req.method === "GET"){
         res.setHeader("Content-Type","application/json");
         res.statusCode = 200;
         res.end(`Shayne has completed a total of ${total} problems`)
     }
-    if(req.url==="/leetcode/easy" && req.method === "GET"){
+    else if(req.url.startsWith("/leetcode/easy") && req.method === "GET"){
         res.setHeader("Content-Type","application/json");
         res.statusCode = 200;
         res.end(`Shayne has completed a total of ${easy} easy problems`)
     }
-    if(req.url==="/leetcode/medium" && req.method === "GET"){
+    else if(req.url==="/leetcode/medium" && req.method === "GET"){
         res.setHeader("Content-Type","application/json");
         res.statusCode = 200;
         res.end(`Shayne has completed a total of ${medium} medium problems`)
     }
-    if(req.url==="/leetcode/hard" && req.method === "GET"){
+    else if(req.url==="/leetcode/hard" && req.method === "GET"){
         res.setHeader("Content-Type","application/json");
         res.statusCode = 200;
         res.end(`Shayne has completed a total of ${hard} hard problems`)
+    } else {
+        res.setHeader('Content-Type', 'application/json')
+        res.statusCode = 404;
+        res.end(JSON.stringify({error: "not found", message: "The requested route does not exist"}))
     }
 
 });

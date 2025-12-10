@@ -1,8 +1,8 @@
 {
     "concepts": [
         {
-            "name": "Counting Sort",
-            "category": "Algorithm",
+            "name": "counting-sort",
+            "category": "sort",
             "whatItIs": "A non-comparison sorting algorithm that counts how many times each value appears and then reconstructs the sorted array using those counts.",
             "whenToUse": [
                 "When the values fall within a small, known range (e.g., only 0 and 1, or values up to a few hundred).",
@@ -13,8 +13,8 @@
             "bigIdea": "Instead of comparing values (like in quicksort or mergesort), you sort by frequency."
         },
         {
-            "name": "Set Membership Loop Pattern",
-            "category": "Hashing / O(1) Lookup Patterns",
+            "name": "set-membership-loop-pattern",
+            "category": "hashing",
             "whatItIs": "A pattern where you place all input values into a Set for constant-time membership checks, then repeatedly apply a transformation to a value as long as it exists in the set.",
             "whenToUse": [
                 "When problems say things like: 'While x exists in the list...'",
@@ -26,7 +26,7 @@
         },
         {
             "name": "Valid Window Substring Counting",
-            "category": "Sliding Window Pattern",
+            "category": "sliding-window",
             "whatItIs": "A sliding-window technique that counts how many substrings satisfy a constraint without generating them. The window expands to the right, shrinks from the left until valid, and once valid, every substring ending at right and starting between left and right is guaranteed valid.",
             "whenToUse": [
                 "When counting substrings or subarrays that must satisfy a frequency or sum constraint.",
