@@ -4,7 +4,7 @@ import conceptsData from './concept-data.json' with { type: 'json' };
 import stats from "./stats.json" with {type: 'json'};
 import fs from "node:fs/promises";
 import path from "node:path";
-import {sendResponse} from "./utils/sendResponse.js";
+import {serveHTML} from "./utils/sendResponse.js";
 const easy =stats.leetcode.easy;
 const medium = stats.leetcode.medium;
 const hard = stats.leetcode.hard;
@@ -21,38 +21,56 @@ const server = http.createServer(async(req,res)=>{
     try{
         if(url.pathname === "/"){
             const html = await fs.readFile(path.join(absPathToPublic,"index.html"));
-            sendResponse(res,200,"text/html",html);
+            serveHTML(res,200,html);
         }
         else if(url.pathname === "/leetcode" && req.method === "GET"){
             if(Object.keys(queryParams).length !==0){
                 if(queryParams.category){
                     const filteredConcepts = concepts.filter((concept)=> concept.category===queryParams.category);
-                    sendResponse(res,200,"application/json",filteredConcepts);
+                    res.setHeader("Content-Type","application/json");
+                    res.statusCode = 200;
+                    res.end(JSON.stringify(filteredConcepts));
                 } else if(queryParams.name){
                     const filteredConcepts = concepts.filter((concept)=> concept.name===queryParams.name);
-                    sendResponse(res,200,"application/json",filteredConcepts);
+                    res.setHeader("Content-Type","application/json");
+                    res.statusCode = 200;
+                    res.end(JSON.stringify(filteredConcepts));
                 } 
                 else {
-                    sendResponse(res,400,"application/json",{error: "bad request", message: "Invalid query parameters"});
+                    res.setHeader("Content-Type","application/json");
+                    res.statusCode = 400;
+                    res.end(JSON.stringify({error: "bad request", message: "Invalid query parameters"}));
                 }
             } 
             else {
-                sendResponse(res,200,"application/json",concepts);
+                res.setHeader("Content-Type","application/json");
+                res.statusCode = 200;
+                res.end(JSON.stringify(concepts));
             }
         }
         else if(req.url.startsWith("/leetcode/completed") && req.method === "GET"){
-            sendResponse(res,200,"text/plain",`Shayne has completed a total of ${total} problems`);
+            res.setHeader("Content-Type","text/plain");
+            res.statusCode = 200;
+            res.end(`Shayne has completed a total of ${total} problems`);
         }
         else if(req.url.startsWith("/leetcode/easy") && req.method === "GET"){
-            sendResponse(res,200,"text/plain",`Shayne has completed a total of ${easy} easy problems`);
+            res.setHeader("Content-Type","text/plain");
+            res.statusCode = 200;
+            res.end(`Shayne has completed a total of ${easy} easy problems`);
         }
         else if(req.url==="/leetcode/medium" && req.method === "GET"){
-            sendResponse(res,200,"text/plain",`Shayne has completed a total of ${medium} medium problems`);
+            res.setHeader("Content-Type","text/plain");
+            res.statusCode = 200;
+            res.end(`Shayne has completed a total of ${medium} medium problems`);
         }
         else if(req.url==="/leetcode/hard" && req.method === "GET"){
-            sendResponse(res,200,"text/plain",`Shayne has completed a total of ${hard} hard problems`);
+            res.setHeader("Content-Type","text/plain");
+            res.statusCode = 200;
+            res.end(`Shayne has completed a total of ${hard} hard problems`);
         } else {
-            sendResponse(res,404,"text/plain",{error: "not found", message: "The requested route does not exist"});
+            res.setHeader("Content-Type","text/plain");
+            res.statusCode = 404;
+            res.end(``);
         }
     } //End of try block
     catch(err){

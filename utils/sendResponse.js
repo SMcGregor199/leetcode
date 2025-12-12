@@ -1,7 +1,7 @@
-function sendResponse(res,statusCode,contentType,body){
-    res.setHeader("Content-Type",contentType);
-    res.statusCode = statusCode;
-    res.end(JSON.stringify(body));
+function serveHTML(res,code,html){
+    res.statusCode = code;
+    res.setHeader("Content-Type","text/html");
+    res.end(html);
 }
 
-export {sendResponse}
+export{serveHTML}
