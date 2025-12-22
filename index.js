@@ -11,7 +11,8 @@ const hard = stats.leetcode.hard;
 const total =stats.leetcode.solved;
 const concepts = conceptsData.concepts;
  
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
+
 
 const server = http.createServer(async(req,res)=>{
 
