@@ -41,4 +41,12 @@
 |  |
 | ------- |
 | [0344-reverse-string](https://github.com/SMcGregor199/leetcode/tree/master/0344-reverse-string) |
+## Linked List
+|  |
+| ------- |
+| [0021-merge-two-sorted-lists](https://github.com/SMcGregor199/leetcode/tree/master/0021-merge-two-sorted-lists) |
+## Recursion
+|  |
+| ------- |
+| [0021-merge-two-sorted-lists](https://github.com/SMcGregor199/leetcode/tree/master/0021-merge-two-sorted-lists) |
 <!---LeetCode Topics End-->
